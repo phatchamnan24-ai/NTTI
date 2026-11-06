@@ -1,0 +1,87 @@
+@import url('https://googleapis.com');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'KD Jayavarman I', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 450px;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+h2 {
+    text-align: center;
+    color: #2d3436;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.form-group { margin-bottom: 18px; }
+label { display: block; margin-bottom: 6px; color: #636e72; font-weight: bold; }
+
+input[type="text"], select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+input[type="text"]:focus, select:focus {
+    border-color: #0984e3;
+    box-shadow: 0 0 8px rgba(9, 132, 227, 0.2);
+}
+
+#reasonGroup { display: none; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #0984e3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover { background-color: #74b9ff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(9, 132, 227, 0.3); }
+
+/* Success Popup */
+.success-popup {
+    display: none; position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    background: #2ecc71; color: white; padding: 20px 40px;
+    border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center; z-index: 100; opacity: 0; transition: all 0.3s ease;
+}
+.success-popup.show { display: block; animation: popUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+@keyframes popUp { to { transform: translate(-50%, -50%) scale(1); opacity: 1; } }

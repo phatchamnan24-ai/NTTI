@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ប្រព័ន្ធគ្រប់គ្រងវត្តមានសិស្ស - Sheet Monkey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>NTTI Attendance</h2>
+        
+        <!-- 💡 ទីនេះជាកន្លែងភ្ជាប់ Link របស់ Sheet Monkey -->
+        <!-- 💡 ដាក់តំណភ្ជាប់របស់អ្នកចូលត្រង់ action នេះ -->
+
+        <form action="https://api.sheetmonkey.io/form/afbGo1jQS3Vnit7AC7W8wv" method="POST" class="mx-auto" style="max-width: 450px;">
+    <!-- ១. ថែមប្រអប់ជ្រើសរើសថ្នាក់រៀន (ដាក់ពីក្រោម <form ...> ភ្លាម ដើម្បីកុំឱ្យប៉ះពាល់កូដចាស់) -->
+        <form id="attendanceForm" action="https://sheetmonkey.io" method="POST">
+
+        <!-- 💡 បន្ថែមកូដនេះចូលទៅក្នុងប្លុក <form> ចាស់របស់អ្នក ដើម្បីឱ្យវាកើតក្បាលជួរឈរក្នុង Excel អូតូ -->
+<input type="hidden" name="" value="">
+
+            <div class="form-group">
+                <label for="studentId">អត្តសញ្ញាណប័ណ្ណ (ID)</label>
+                <!-- ⚠️ ត្រូវមាន name="ID" ដូចគ្នាទៅនឹងចំណងជើងជួរឈរក្នុង Excel របស់អ្នក -->
+               
+                <!-- 💡 កូដថ្មី៖ បន្ថែម onchange ចូលទៅខាងក្នុង input ដើម្បីឱ្យវាថែមសញ្ញា ' ដោយស្វ័យប្រវត្តិតែម្តងពេលវាយលេខរួច -->
+<input type="text" id="studentId" name="ID" required placeholder="......" onchange="if(!this.value.startsWith('\'')) this.value = '\'' + this.value;">
+
+            </div>
+
+            <div class="form-group">
+                <label for="studentName">ឈ្មោះសិស្ស</label>
+                <input type="text" id="studentName" name="Name" required placeholder="......">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">ភេទ</label>
+                <select id="gender" name="Gender" required>
+                    <option value="">......</option>
+                    <option value="ប្រុស">ប្រុស</option>
+                    <option value="ស្រី">ស្រី</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="class">ថ្នាក់រៀន</label>
+                <select id="class" name="Class" required>
+                    <option value="">......</option>
+                    <option value="IT012B1">IT012B1</option>
+                    <option value="IT012B2">IT012B2</option>
+                    <option value="IT012B3">IT012B3</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="status">វត្តមាន</label>
+                <select id="status" name="Status" required onchange="toggleReason()">
+                    <option value="">......</option>
+                    <option value="មក">មក</option>
+                    <option value="មិនមក">មិនមក</option>
+                    <option value="ច្បាប់">ច្បាប់</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="reasonGroup">
+                <label for="reason"> មូលហេតុ</label>
+                <input type="text" id="reason" name="Reason" placeholder="......">
+            </div>
+
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+    </div>
+
+    <!-- ផ្ទាំងលោតពេលជោគជ័យ (Pop-up Animation) -->
+    <div class="success-popup" id="successPopup">
+        <h3>រក្សាទុកបានជោគជ័យ! 🎉</h3>
+        <p>ទិន្នន័យត្រូវបានបញ្ជូនទៅ Google Sheet រួចរាល់។</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
